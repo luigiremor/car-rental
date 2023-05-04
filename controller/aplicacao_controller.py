@@ -1,3 +1,4 @@
+from controller.auth_controller import AuthController
 from controller.clientes_controller import ClientesController
 from controller.funcionarios_controller import FuncionariosController
 from controller.locacoes_controller import LocacoesController
@@ -9,6 +10,7 @@ from view.aplicacao_view import AplicacaoView
 
 class AplicacaoController:
     def __init__(self):
+        self.view = AplicacaoView()
         self.clientes_controller = ClientesController()
         self.funcionarios_controller = FuncionariosController()
         self.veiculos_controller = Veiculos_Controller()
@@ -16,54 +18,18 @@ class AplicacaoController:
             self.veiculos_controller, self.clientes_controller)
         self.locacoes_controller = LocacoesController(
             self.clientes_controller, self.veiculos_controller, self.funcionarios_controller)
-        self.view = AplicacaoView()
+        self.auth_controller = AuthController(self.funcionarios_controller, self.view)
+    
+
+    def run(self):
+        while True:
+            is_logged = self.handle_menu_login()
+            if is_logged:
+                self.handle_menu_principal()
 
     def handle_menu_login(self):
-        while True:
-            self.view.menu_login()
-            opcao = self.view.get_input("Digite sua opção: ")
-
-            if opcao == "1":
-                self.handle_login()
-            elif opcao == "2":
-                self.handle_cadastrar()
-            elif opcao == "3":
-                self.view.display_mensagem("Saindo do sistema...")
-                break
-            else:
-                self.view.display_mensagem(
-                    "Opção inválida. Por favor, tente novamente.")
-
-    def handle_login(self):
-        self.view.display_mensagem("Login")
-        login = self.view.get_input("Digite seu login: ")
-        senha = self.view.get_input("Digite sua senha: ")
-
-        funcionario = self.funcionarios_controller.buscar_funcionario(login)
-
-        if funcionario is not None:
-            if funcionario.check_password(senha):
-                self.view.display_mensagem("Login efetuado com sucesso!")
-                self.handle_menu_principal()
-            else:
-                self.view.display_mensagem(
-                    "Senha incorreta. Por favor, tente novamente.")
-
-    def handle_cadastrar(self):
-        self.view.display_mensagem("Cadastrar")
-        nome = self.view.get_input("Digite seu nome: ")
-        cpf = self.view.get_input("Digite seu CPF: ")
-        telefone = self.view.get_input("Digite seu telefone: ")
-        cargo = self.view.get_input("Digite seu cargo: ")
-        login = self.view.get_input("Digite seu login: ")
-        senha = self.view.get_input("Digite sua senha: ")
-
-        self.funcionarios_controller.funcionarios.append(Funcionario(self.calculate_id(
-            self.funcionarios_controller.funcionarios), nome, cpf, telefone, cargo, login, senha))
-
-        self.view.display_mensagem("Cadastro efetuado com sucesso!")
-        self.handle_menu_principal()
-
+        return self.auth_controller.handle_menu_login()
+        
     def handle_menu_principal(self):
         while True:
             self.view.menu_principal()
