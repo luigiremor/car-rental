@@ -10,18 +10,18 @@ class AplicacaoView():
         print("1 - Clientes")
         print("2 - Funcionarios")
         print("3 - Veiculos")
-        print("4 - Locações")
-        print("5 - Reservas")
+        print("4 - Reservas")
+        print("5 - Locações")
         print("6 - Sair")
         print("")
 
     def menu_clientes(self):
         print("1 - Cadastrar Cliente")
-        print("2 - Listar Clientes")
-        print("3 - Buscar Cliente")
-        print("4 - Alterar Cliente")
-        print("5 - Excluir Cliente")
-        print("6 - Sair")
+        print("2 - Alterar Cliente")
+        print("3 - Excluir Cliente")
+        print("4 - Listar Clientes")
+        print("5 - Buscar Cliente")
+        print("6 - Voltar ao Menu Principal")
         print("")
 
     def display_cliente(self, cliente):
@@ -29,41 +29,44 @@ class AplicacaoView():
 
     def menu_funcionarios(self):
         print("1 - Cadastrar Funcionário")
-        print("2 - Listar Funcionários")
-        print("3 - Buscar Funcionário")
-        print("4 - Alterar Funcionário")
-        print("5 - Excluir Funcionário")
-        print("6 - Sair")
+        print("2 - Alterar Funcionário")
+        print("3 - Excluir Funcionário")
+        print("4 - Listar Funcionários")
+        print("5 - Buscar Funcionário")
+        print("6 - Voltar ao Menu Principal")
         print("")
 
     def display_funcionario(self, funcionario):
         print(funcionario)
 
     def menu_veiculos(self):
-        print("1 - Cadastrar Veículo")
-        print("2 - Listar Veículos")
-        print("3 - Buscar Veículo")
-        print("4 - Alterar Veículo")
-        print("5 - Excluir Veículo")
-        print("6 - Sair")
+        print("1 - Cadastrar Veiculo")
+        print("2 - Alterar Veiculo")
+        print("3 - Excluir Veiculo")
+        print("4 - Listar Veiculos")
+        print("5 - Buscar Veiculo")
+        print("6 - Voltar ao Menu Principal")
         print("")
     
+    def display_veiculo(self, veiculo):
+        print(veiculo)
+
     def menu_reservas(self):
         print("1 - Cadastrar Reserva")
-        print("2 - Listar Reservas")
-        print("3 - Buscar Reserva")
-        print("4 - Alterar Reserva")
-        print("5 - Excluir Reserva")
-        print("6 - Sair")
+        print("2 - Alterar Reserva")
+        print("3 - Excluir Reserva")
+        print("4 - Listar Reservas")
+        print("5 - Buscar Reserva")
+        print("6 - Voltar ao Menu Principal")
         print("")
 
     def menu_locacoes(self):
         print("1 - Cadastrar Locação")
-        print("2 - Listar Locações")
-        print("3 - Buscar Locação")
-        print("4 - Alterar Locação")
-        print("5 - Excluir Locação")
-        print("6 - Sair")
+        print("2 - Alterar Locação")
+        print("3 - Excluir Locação")
+        print("4 - Listar Locações")
+        print("5 - Buscar Locação")
+        print("6 - Voltar ao Menu Principal")
         print("")
     
     def get_input(self, mensagem):
