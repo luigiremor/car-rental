@@ -87,7 +87,6 @@ class ReservasController():
         else:
             self.view.display_mensagem("Reserva não encontrada.")
 
-
     def handle_excluir_reserva(self):
         self.view.display_mensagem("Excluir Reserva")
         id = self.view.get_input("Digite o id da reserva: ")

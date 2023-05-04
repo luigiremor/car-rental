@@ -28,7 +28,8 @@ class Veiculos_Controller():
             elif opcao == "6":
                 break
             else:
-                self.view.display_mensagem("Opção inválida. Por favor, tente novamente.")
+                self.view.display_mensagem(
+                    "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_veiculos(self):
         self.view.display_mensagem("Cadastrar Veículo")
@@ -38,11 +39,14 @@ class Veiculos_Controller():
         cor = self.view.get_input("Digite a cor do veículo: ")
         categoria = self.view.get_input("Digite a categoria do veículo: ")
         ano = self.view.get_input("Digite o ano do veículo: ")
-        valor_diaria = float(self.view.get_input("Digite o valor do veículo: "))
-        disponivel = self.view.get_input("Digite se o veículo está disponível: (S/N)")
+        valor_diaria = float(self.view.get_input(
+            "Digite o valor do veículo: "))
+        disponivel = self.view.get_input(
+            "Digite se o veículo está disponível: (S/N)")
         is_disponivel = disponivel.lower() == "s"
 
-        self.veiculos.append(Veiculo(self.calculate_id(self.veiculos), marca, modelo, ano, placa, cor, categoria, valor_diaria, is_disponivel))
+        self.veiculos.append(Veiculo(self.calculate_id(
+            self.veiculos), marca, modelo, ano, placa, cor, categoria, valor_diaria, is_disponivel))
 
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
 
@@ -57,8 +61,10 @@ class Veiculos_Controller():
             cor = self.view.get_input("Digite a cor do veículo: ")
             categoria = self.view.get_input("Digite a categoria do veículo: ")
             ano = self.view.get_input("Digite o ano do veículo: ")
-            valor_diaria = float(self.view.get_input("Digite o valor do veículo: "))
-            disponivel = self.view.get_input("Digite se o veículo está disponível: (S/N)")
+            valor_diaria = float(self.view.get_input(
+                "Digite o valor do veículo: "))
+            disponivel = self.view.get_input(
+                "Digite se o veículo está disponível: (S/N)")
             is_disponivel = disponivel.lower() == "s"
 
             veiculo.set_marca(marca)
@@ -71,7 +77,6 @@ class Veiculos_Controller():
 
             self.view.display_mensagem("Veículo editado com sucesso!")
 
-
     def handle_excluir_veiculo(self):
         self.view.display_mensagem("Excluir Veículo")
         placa = self.view.get_input("Digite a placa do veículo: ")
@@ -82,12 +87,11 @@ class Veiculos_Controller():
             self.view.display_mensagem("Veículo excluído com sucesso!")
         else:
             self.view.display_mensagem("Veículo não encontrado!")
-    
+
     def handle_listar_veiculo(self):
         self.view.display_mensagem("Listar Veículo")
         for veiculo in self.veiculos:
             self.view.display_veiculo(veiculo)
-
 
     def buscar_veiculo(self, placa) -> Veiculo | None:
         for veiculo in self.veiculos:

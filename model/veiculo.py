@@ -17,34 +17,34 @@ class Veiculo():
 
     def get_id(self):
         return self.id
-    
+
     def get_marca(self):
         return self.marca
 
     def get_modelo(self):
         return self.modelo
-    
+
     def get_ano(self):
         return self.ano
-    
+
     def get_placa(self):
         return self.placa
-    
+
     def get_cor(self):
         return self.cor
-    
+
     def get_categoria(self):
         return self.categoria
-    
+
     def get_is_disponivel(self):
         return self.is_disponivel
-    
+
     def get_valor_diaria(self) -> float:
         return float(self.valor_diaria)
-    
+
     def set_marca(self, marca):
         self.marca = marca
-    
+
     def set_modelo(self, modelo):
         self.modelo = modelo
 
@@ -65,5 +65,3 @@ class Veiculo():
 
     def set_valor_diaria(self, valor_diaria):
         self.valor_diaria = valor_diaria
-
-    

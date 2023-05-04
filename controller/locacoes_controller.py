@@ -33,8 +33,8 @@ class LocacoesController():
             elif opcao == "6":
                 break
             else:
-                self.view.display_mensagem("Opção inválida. Por favor, tente novamente.")
-
+                self.view.display_mensagem(
+                    "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_locacao(self):
         self.view.display_mensagem("Cadastrar Locação")
@@ -48,18 +48,20 @@ class LocacoesController():
                 opcao = self.view.get_input("Digite sua opção: ")
                 if opcao.lower() != "s":
                     return
-        
+
         funcionario = None
         while funcionario is None:
-            login_funcionario = self.view.get_input("Digite o login do funcionário: ")
-            funcionario = self.funcionarios_controller.buscar_funcionario(login_funcionario)
+            login_funcionario = self.view.get_input(
+                "Digite o login do funcionário: ")
+            funcionario = self.funcionarios_controller.buscar_funcionario(
+                login_funcionario)
             if funcionario is None:
                 self.view.display_mensagem("Funcionário não encontrado.")
                 self.view.display_mensagem("Deseja continuar? (S/N)")
                 opcao = self.view.get_input("Digite sua opção: ")
                 if opcao.lower() != "s":
                     return
-        
+
         veiculo = None
         while veiculo is None:
             placa_veiculo = self.view.get_input("Digite a placa do veículo: ")
@@ -71,10 +73,12 @@ class LocacoesController():
                 if opcao.lower() != "s":
                     return
 
-        data_inicio = self.view.get_input("Digite a data de início da locação: ")
+        data_inicio = self.view.get_input(
+            "Digite a data de início da locação: ")
         data_fim = self.view.get_input("Digite a data de fim da locação: ")
 
-        locacao = Locacao(self.calculate_id(self.locacoes), data_inicio, data_fim, cliente, veiculo, funcionario)
+        locacao = Locacao(self.calculate_id(self.locacoes),
+                          data_inicio, data_fim, cliente, veiculo, funcionario)
 
         self.locacoes.append(locacao)
 
@@ -92,14 +96,14 @@ class LocacoesController():
         self.view.display_mensagem("Dados da Locação:")
         self.view.display_mensagem(locacao)
 
-        data_inicio = self.view.get_input("Digite a data de início da locação: ")
+        data_inicio = self.view.get_input(
+            "Digite a data de início da locação: ")
         data_fim = self.view.get_input("Digite a data de fim da locação: ")
 
         locacao.set_data_inicio(data_inicio)
         locacao.set_data_fim(data_fim)
 
         self.view.display_mensagem("Locação editada com sucesso!")
-
 
     def handle_excluir_locacao(self):
         self.view.display_mensagem("Excluir Locação")

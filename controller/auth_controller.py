@@ -20,7 +20,8 @@ class AuthController:
                 self.view.display_mensagem("Saindo do sistema...")
                 break
             else:
-                self.view.display_mensagem("Opção inválida. Por favor, tente novamente.")
+                self.view.display_mensagem(
+                    "Opção inválida. Por favor, tente novamente.")
 
     def handle_login(self):
         self.view.display_mensagem("Login")
@@ -34,7 +35,8 @@ class AuthController:
                 self.view.display_mensagem("Login efetuado com sucesso!")
                 return True
             else:
-                self.view.display_mensagem("Senha incorreta. Por favor, tente novamente.")
+                self.view.display_mensagem(
+                    "Senha incorreta. Por favor, tente novamente.")
         return False
 
     def handle_cadastrar(self):
@@ -46,7 +48,8 @@ class AuthController:
         login = self.view.get_input("Digite seu login: ")
         senha = self.view.get_input("Digite sua senha: ")
 
-        funcionario = Funcionario(self.funcionarios_controller.calculate_id(self.funcionarios_controller.funcionarios), nome, cpf, telefone, cargo, login, senha)
+        funcionario = Funcionario(self.funcionarios_controller.calculate_id(
+            self.funcionarios_controller.funcionarios), nome, cpf, telefone, cargo, login, senha)
         self.funcionarios_controller.funcionarios.append(funcionario)
 
         self.view.display_mensagem("Cadastro efetuado com sucesso!")

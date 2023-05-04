@@ -26,7 +26,8 @@ class ClientesController:
             elif opcao == "6":
                 break
             else:
-                self.view.display_mensagem("Opção inválida. Por favor, tente novamente.")
+                self.view.display_mensagem(
+                    "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_cliente(self):
         self.view.display_mensagem("Cadastrar Cliente")
@@ -35,10 +36,11 @@ class ClientesController:
         telefone = self.view.get_input("Digite seu telefone: ")
         endereco = self.view.get_input("Digite seu endereço: ")
 
-        self.clientes.append(Cliente(self.calculate_id(self.clientes), nome, cpf, telefone, endereco))
+        self.clientes.append(Cliente(self.calculate_id(
+            self.clientes), nome, cpf, telefone, endereco))
 
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
-    
+
     def handle_editar_cliente(self):
         self.view.display_mensagem("Editar Cliente")
         cpf = self.view.get_input("Digite o CPF do cliente: ")
@@ -57,7 +59,6 @@ class ClientesController:
         else:
             self.view.display_mensagem("Cliente não encontrado.")
 
-
     def handle_excluir_cliente(self):
         self.view.display_mensagem("Excluir Cliente")
         cpf = self.view.get_input("Digite o CPF do cliente: ")
@@ -69,7 +70,6 @@ class ClientesController:
         else:
             self.view.display_mensagem("Cliente não encontrado.")
 
-
     def handle_listar_cliente(self):
         self.view.display_mensagem("Listar Clientes")
         for cliente in self.clientes:
@@ -80,6 +80,6 @@ class ClientesController:
             if cliente.get_cpf() == cpf:
                 return cliente
         return None
-    
+
     def calculate_id(self, lista):
         return len(lista) + 1

@@ -28,8 +28,9 @@ class FuncionariosController():
             elif opcao == "6":
                 break
             else:
-                self.view.display_mensagem("Opção inválida. Por favor, tente novamente.")
-    
+                self.view.display_mensagem(
+                    "Opção inválida. Por favor, tente novamente.")
+
     def handle_cadastrar_funcionario(self):
         self.view.display_mensagem("Cadastrar Funcionário")
         nome = self.view.get_input("Digite seu nome: ")
@@ -39,8 +40,8 @@ class FuncionariosController():
         login = self.view.get_input("Digite seu login: ")
         senha = self.view.get_input("Digite sua senha: ")
 
-
-        self.funcionarios.append(Funcionario(self.calculate_id(self.funcionarios), nome, cpf, telefone, cargo, login, senha))
+        self.funcionarios.append(Funcionario(self.calculate_id(
+            self.funcionarios), nome, cpf, telefone, cargo, login, senha))
 
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
 
@@ -64,7 +65,6 @@ class FuncionariosController():
         else:
             self.view.display_mensagem("Funcionário não encontrado.")
 
-
     def handle_excluir_funcionario(self):
         self.view.display_mensagem("Excluir Funcionário")
         login = self.view.get_input("Digite o login do funcionário: ")
@@ -76,7 +76,6 @@ class FuncionariosController():
         else:
             self.view.display_mensagem("Funcionário não encontrado.")
 
-    
     def handle_listar_funcionario(self):
         self.view.display_mensagem("Listar Funcionários")
         for funcionario in self.funcionarios:
@@ -84,10 +83,9 @@ class FuncionariosController():
 
     def calculate_id(self, lista):
         return len(lista) + 1
-    
+
     def buscar_funcionario(self, login):
         for funcionario in self.funcionarios:
             if funcionario.get_login() == login:
                 return funcionario
         return None
-    

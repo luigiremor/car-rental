@@ -48,7 +48,7 @@ class Reserva():
 
     def set_valor_total(self, valor_total):
         self.valor_total = valor_total
-    
+
     def calcular_dias_reserva(self):
         data_inicio = datetime.strptime(self.data_inicio, '%d/%m/%Y')
         data_fim = datetime.strptime(self.data_fim, '%d/%m/%Y')

@@ -47,7 +47,7 @@ class AplicacaoView():
         print("5 - Buscar Veiculo")
         print("6 - Voltar ao Menu Principal")
         print("")
-    
+
     def display_veiculo(self, veiculo):
         print(veiculo)
 
@@ -68,11 +68,9 @@ class AplicacaoView():
         print("5 - Buscar Locação")
         print("6 - Voltar ao Menu Principal")
         print("")
-    
+
     def get_input(self, mensagem):
         return input(mensagem)
-    
+
     def display_mensagem(self, mensagem):
         print(mensagem)
-
-    

@@ -4,7 +4,6 @@ from controller.funcionarios_controller import FuncionariosController
 from controller.locacoes_controller import LocacoesController
 from controller.reservas_controller import ReservasController
 from controller.veiculos_controller import Veiculos_Controller
-from model.funcionario import Funcionario
 from view.aplicacao_view import AplicacaoView
 
 
@@ -18,8 +17,8 @@ class AplicacaoController:
             self.veiculos_controller, self.clientes_controller)
         self.locacoes_controller = LocacoesController(
             self.clientes_controller, self.veiculos_controller, self.funcionarios_controller)
-        self.auth_controller = AuthController(self.funcionarios_controller, self.view)
-    
+        self.auth_controller = AuthController(
+            self.funcionarios_controller, self.view)
 
     def run(self):
         while True:
@@ -29,7 +28,7 @@ class AplicacaoController:
 
     def handle_menu_login(self):
         return self.auth_controller.handle_menu_login()
-        
+
     def handle_menu_principal(self):
         while True:
             self.view.menu_principal()
