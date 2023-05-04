@@ -13,8 +13,7 @@ class Veiculo():
         self.valor_diaria = valor_diaria
 
     def __str__(self):
-        return f"Modelo: {self.modelo} | Ano: {self.ano} | Placa: {self.placa} | Cor: {self.cor} | Categoria: {self.categoria} | Valor da Diária: {self.valor_diaria}"
-    
+        return f"ID: {self.id} | Marca: {self.marca} | Modelo: {self.modelo} | Ano: {self.ano} | Placa: {self.placa} | Cor: {self.cor} | Categoria: {self.categoria} | Valor da Diária: {self.valor_diaria} | Disponível: {self.is_disponivel}"
 
     def get_id(self):
         return self.id
@@ -40,8 +39,8 @@ class Veiculo():
     def get_is_disponivel(self):
         return self.is_disponivel
     
-    def get_valor_diaria(self):
-        return self.valor_diaria
+    def get_valor_diaria(self) -> float:
+        return float(self.valor_diaria)
     
     def set_marca(self, marca):
         self.marca = marca
