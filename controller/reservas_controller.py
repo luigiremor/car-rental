@@ -13,8 +13,8 @@ class ReservasController():
     def __init__(self, veiculos_controller: Veiculos_Controller, clientes_controller: ClientesController):
         self.reservas: list[Reserva] = []
         self.view = AplicacaoView()
-        self.veiculosController = veiculos_controller
-        self.clientesController = clientes_controller
+        self.veiculos_controller = veiculos_controller
+        self.clientes_controller = clientes_controller
 
     def handle_menu_reservas(self):
         """
@@ -53,7 +53,7 @@ class ReservasController():
         cliente = None
         while cliente is None:
             cpf_cliente = self.view.get_input("Digite o CPF do cliente: ")
-            cliente = self.clientesController.buscar_cliente(cpf_cliente)
+            cliente = self.clientes_controller.buscar_cliente(cpf_cliente)
             if cliente is None:
                 self.view.display_mensagem("Cliente não encontrado.")
                 self.view.display_mensagem("Deseja continuar? (S/N)")
@@ -64,7 +64,7 @@ class ReservasController():
         veiculo = None
         while veiculo is None:
             placa_veiculo = self.view.get_input("Digite a placa do veículo: ")
-            veiculo = self.veiculosController.buscar_veiculo(placa_veiculo)
+            veiculo = self.veiculos_controller.buscar_veiculo(placa_veiculo)
             if veiculo is None:
                 self.view.display_mensagem("Veículo não encontrado.")
                 self.view.display_mensagem("Deseja continuar? (S/N)")
