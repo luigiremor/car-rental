@@ -8,6 +8,10 @@ from view.aplicacao_view import AplicacaoView
 
 
 class AplicacaoController:
+    """
+    Controller responsável por gerenciar as operações relacionadas à aplicação.
+    """
+
     def __init__(self):
         self.view = AplicacaoView()
         self.clientes_controller = ClientesController()
@@ -21,6 +25,9 @@ class AplicacaoController:
             self.funcionarios_controller, self.view)
 
     def run(self):
+        """
+        Executa a aplicação.
+        """
         while True:
             is_logged = self.handle_menu_login()
             if is_logged:
@@ -29,9 +36,15 @@ class AplicacaoController:
                 break
 
     def handle_menu_login(self):
+        """
+        Exibe um menu de opções para o usuário e executa a operação selecionada.
+        """
         return self.auth_controller.handle_menu_login()
 
     def handle_menu_principal(self):
+        """
+        Exibe um menu de opções para o usuário e executa a operação selecionada.
+        """
         while True:
             self.view.menu_principal()
             opcao = self.view.get_input("Digite sua opção: ")
@@ -52,9 +65,3 @@ class AplicacaoController:
             else:
                 self.view.display_mensagem(
                     "Opção inválida. Por favor, tente novamente.")
-
-    def handle_menu_locacao(self):
-        pass
-
-    def calculate_id(self, lista):
-        return len(lista) + 1

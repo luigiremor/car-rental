@@ -3,11 +3,18 @@ from view.aplicacao_view import AplicacaoView
 
 
 class ClientesController:
+    """
+    Controller responsável por gerenciar as operações relacionadas aos clientes.
+    """
+
     def __init__(self):
         self.clientes: list[Cliente] = []
         self.view = AplicacaoView()
 
     def handle_menu_clientes(self):
+        """
+        Exibe um menu de opções para o usuário e executa a operação selecionada.
+        """
         while True:
             self.view.menu_clientes()
             opcao = self.view.get_input("Digite sua opção: ")
@@ -30,6 +37,9 @@ class ClientesController:
                     "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_cliente(self):
+        """
+        Obtém informações do usuário para criar um novo cliente e adicioná-lo à lista de clientes.
+        """
         self.view.display_mensagem("Cadastrar Cliente")
         nome = self.view.get_input("Digite seu nome: ")
         cpf = self.view.get_input("Digite seu CPF: ")
@@ -42,6 +52,9 @@ class ClientesController:
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
 
     def handle_editar_cliente(self):
+        """
+        Obtém o CPF do cliente a ser editado e as novas informações do usuário para atualizar o cliente correspondente.
+        """
         self.view.display_mensagem("Editar Cliente")
         cpf = self.view.get_input("Digite o CPF do cliente: ")
         cliente = self.buscar_cliente(cpf)
@@ -60,6 +73,9 @@ class ClientesController:
             self.view.display_mensagem("Cliente não encontrado.")
 
     def handle_excluir_cliente(self):
+        """
+        Obtém o CPF do cliente a ser excluído e remove-o da lista de clientes.
+        """
         self.view.display_mensagem("Excluir Cliente")
         cpf = self.view.get_input("Digite o CPF do cliente: ")
         cliente = self.buscar_cliente(cpf)
@@ -71,15 +87,24 @@ class ClientesController:
             self.view.display_mensagem("Cliente não encontrado.")
 
     def handle_listar_cliente(self):
+        """
+        Exibe todos os clientes cadastrados.
+        """
         self.view.display_mensagem("Listar Clientes")
         for cliente in self.clientes:
             self.view.display_mensagem(cliente)
 
     def buscar_cliente(self, cpf) -> Cliente | None:
+        """
+        Busca um cliente pelo CPF.
+        """
         for cliente in self.clientes:
             if cliente.get_cpf() == cpf:
                 return cliente
         return None
 
     def calculate_id(self, lista):
+        """
+        Calcula o ID do novo cliente a ser cadastrado.
+        """
         return len(lista) + 1

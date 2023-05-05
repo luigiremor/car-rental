@@ -4,6 +4,9 @@ from view.aplicacao_view import AplicacaoView
 
 
 class FuncionariosController():
+    """
+    Controlador de funcionários do sistema de locação de veículos.
+    """
 
     def __init__(self):
         self.funcionarios: list[Funcionario] = []
@@ -11,6 +14,9 @@ class FuncionariosController():
         self.view = AplicacaoView()
 
     def handle_menu_funcionarios(self):
+        """
+        Exibe um menu de opções para o usuário e executa a operação selecionada.
+        """
         while True:
             self.view.menu_funcionarios()
             opcao = self.view.get_input("Digite sua opção: ")
@@ -33,6 +39,9 @@ class FuncionariosController():
                     "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_funcionario(self):
+        """
+        Obtém informações do usuário para criar um novo funcionário e adicioná-lo à lista de funcionários.
+        """
         self.view.display_mensagem("Cadastrar Funcionário")
         nome = self.view.get_input("Digite seu nome: ")
         cpf = self.view.get_input("Digite seu CPF: ")
@@ -47,6 +56,9 @@ class FuncionariosController():
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
 
     def handle_editar_funcionario(self):
+        """
+        Obtém o login do funcionário a ser editado e as novas informações do usuário para atualizar o funcionário correspondente.
+        """
         self.view.display_mensagem("Editar Funcionário")
         login = self.view.get_input("Digite o login do funcionário: ")
         funcionario = self.buscar_funcionario(login)
@@ -67,6 +79,9 @@ class FuncionariosController():
             self.view.display_mensagem("Funcionário não encontrado.")
 
     def handle_excluir_funcionario(self):
+        """
+        Obtém o login do funcionário a ser excluído e o remove da lista de funcionários.
+        """
         self.view.display_mensagem("Excluir Funcionário")
         login = self.view.get_input("Digite o login do funcionário: ")
         funcionario = self.buscar_funcionario(login)
@@ -78,6 +93,9 @@ class FuncionariosController():
             self.view.display_mensagem("Funcionário não encontrado.")
 
     def handle_listar_funcionario(self):
+        """
+        Exibe todos os funcionários cadastrados.
+        """
         self.view.display_mensagem("Listar Funcionários")
         for funcionario in self.funcionarios:
             self.view.display_mensagem(funcionario)

@@ -1,4 +1,7 @@
 class AplicacaoView():
+    """
+    View responsável por exibir as informações para o usuário.
+    """
 
     def menu_login(self):
         print("1 - Login")

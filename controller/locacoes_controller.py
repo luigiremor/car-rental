@@ -6,6 +6,9 @@ from view.aplicacao_view import AplicacaoView
 
 
 class LocacoesController():
+    """
+    Controller responsável por gerenciar as operações relacionadas às locações.
+    """
 
     def __init__(self, clientes_controller: ClientesController, veiculos_controller: Veiculos_Controller, funcionarios_controller: FuncionariosController):
         self.locacoes: list[Locacao] = []
@@ -15,6 +18,9 @@ class LocacoesController():
         self.funcionarios_controller = funcionarios_controller
 
     def handle_menu_locacoes(self):
+        """
+        Exibe um menu de opções para o usuário e executa a operação selecionada.
+        """
         while True:
             self.view.menu_locacoes()
             opcao = self.view.get_input("Digite sua opção: ")
@@ -37,6 +43,9 @@ class LocacoesController():
                     "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_locacao(self):
+        """
+        Obtém informações do usuário para criar uma nova locação e adicioná-la à lista de locações.
+        """
         self.view.display_mensagem("Cadastrar Locação")
         cliente = None
         while cliente is None:
@@ -85,6 +94,9 @@ class LocacoesController():
         self.view.display_mensagem("Locação cadastrada com sucesso!")
 
     def handle_editar_locacao(self):
+        """
+        Obtém o ID da locação a ser editada e as novas informações do usuário para atualizar a locação.
+        """
         self.view.display_mensagem("Editar Locação")
         id = self.view.get_input("Digite o ID da locação: ")
         locacao = self.buscar_locacao(id)
@@ -106,6 +118,9 @@ class LocacoesController():
         self.view.display_mensagem("Locação editada com sucesso!")
 
     def handle_excluir_locacao(self):
+        """
+        Obtém o ID da locação a ser excluída e a remove da lista de locações.
+        """
         self.view.display_mensagem("Excluir Locação")
         id = self.view.get_input("Digite o ID da locação: ")
         locacao = self.buscar_locacao(id)
@@ -116,6 +131,9 @@ class LocacoesController():
         self.view.display_mensagem("Locação excluída com sucesso!")
 
     def handle_listar_locacao(self):
+        """
+        Exibe todas as locações cadastradas.
+        """
         self.view.display_mensagem("Listar Locações")
         if len(self.locacoes) == 0:
             self.view.display_mensagem("Não há locações cadastradas.")
@@ -124,6 +142,9 @@ class LocacoesController():
             self.view.display_mensagem(locacao)
 
     def buscar_locacao(self, id):
+        """
+        Busca uma locação pelo ID.
+        """
         for locacao in self.locacoes:
             if locacao.get_id() == id:
                 return locacao

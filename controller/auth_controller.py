@@ -3,11 +3,18 @@ from model.funcionario import Funcionario
 
 
 class AuthController:
+    """
+    Classe AuthController que controla a autenticação de usuários no sistema.
+    """
+
     def __init__(self, funcionarios_controller: FuncionariosController, view):
         self.funcionarios_controller = funcionarios_controller
         self.view = view
 
     def handle_menu_login(self):
+        """
+        Exibe o menu de login e trata a opção escolhida pelo usuário.
+        """
         while True:
             self.view.menu_login()
             opcao = self.view.get_input("Digite sua opção: ")
@@ -24,6 +31,9 @@ class AuthController:
                     "Opção inválida. Por favor, tente novamente.")
 
     def handle_login(self):
+        """
+        Solicita as informações de login do usuário e valida as credenciais.
+        """
         self.view.display_mensagem("Login")
         login = self.view.get_input("Digite seu login: ")
         senha = self.view.get_input("Digite sua senha: ")
@@ -41,6 +51,9 @@ class AuthController:
         return False
 
     def handle_cadastrar(self):
+        """
+        Solicita as informações de cadastro do usuário e cria um novo funcionário.
+        """
         self.view.display_mensagem("Cadastrar")
         nome = self.view.get_input("Digite seu nome: ")
         cpf = self.view.get_input("Digite seu CPF: ")

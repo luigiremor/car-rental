@@ -6,6 +6,9 @@ from view.aplicacao_view import AplicacaoView
 
 
 class ReservasController():
+    """
+    Controller responsável por gerenciar as operações relacionadas às reservas.
+    """
 
     def __init__(self, veiculos_controller: Veiculos_Controller, clientes_controller: ClientesController):
         self.reservas: list[Reserva] = []
@@ -14,6 +17,9 @@ class ReservasController():
         self.clientesController = clientes_controller
 
     def handle_menu_reservas(self):
+        """
+        Exibe um menu de opções para o usuário e executa a operação selecionada.
+        """
         while True:
             self.view.menu_reservas()
             opcao = self.view.get_input("Digite sua opção: ")
@@ -40,6 +46,9 @@ class ReservasController():
                     "Opção inválida. Por favor, tente novamente.")
 
     def handle_cadastrar_reserva(self):
+        """
+        Obtém informações do usuário para criar uma nova reserva e adicioná-la à lista de reservas.
+        """
         self.view.display_mensagem("Cadastrar Reserva")
         cliente = None
         while cliente is None:
@@ -72,6 +81,9 @@ class ReservasController():
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
 
     def handle_editar_reserva(self):
+        """
+        Obtém informações do usuário para editar uma reserva existente.
+        """
         self.view.display_mensagem("Editar Reserva")
         id = self.view.get_input("Digite o id da reserva: ")
         reserva = self.buscar_reserva(id)
@@ -88,6 +100,9 @@ class ReservasController():
             self.view.display_mensagem("Reserva não encontrada.")
 
     def handle_excluir_reserva(self):
+        """
+        Obtém informações do usuário para excluir uma reserva existente.
+        """
         self.view.display_mensagem("Excluir Reserva")
         id = self.view.get_input("Digite o id da reserva: ")
         reserva = self.buscar_reserva(id)
@@ -99,11 +114,17 @@ class ReservasController():
             self.view.display_mensagem("Reserva não encontrada.")
 
     def handle_listar_reservas(self):
+        """
+        Exibe todas as reservas cadastradas.
+        """
         self.view.display_mensagem("Listar Reservas")
         for reserva in self.reservas:
             self.view.display_mensagem(reserva)
 
     def buscar_reserva(self, id) -> Reserva | None:
+        """
+        Busca uma reserva na lista de reservas pelo id.
+        """
         for reserva in self.reservas:
             if reserva.get_id() == id:
                 return reserva
