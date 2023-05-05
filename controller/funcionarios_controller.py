@@ -6,7 +6,8 @@ from view.aplicacao_view import AplicacaoView
 class FuncionariosController():
 
     def __init__(self):
-        self.funcionarios = []
+        self.funcionarios: list[Funcionario] = []
+        self.funcionario_logado = None
         self.view = AplicacaoView()
 
     def handle_menu_funcionarios(self):
@@ -70,7 +71,7 @@ class FuncionariosController():
         login = self.view.get_input("Digite o login do funcionário: ")
         funcionario = self.buscar_funcionario(login)
 
-        if funcionario is not None:
+        if funcionario is not None and funcionario != self.funcionario_logado:
             self.funcionarios.remove(funcionario)
             self.view.display_mensagem("Funcionário excluído com sucesso!")
         else:
@@ -79,7 +80,7 @@ class FuncionariosController():
     def handle_listar_funcionario(self):
         self.view.display_mensagem("Listar Funcionários")
         for funcionario in self.funcionarios:
-            self.view.display_funcionario(funcionario)
+            self.view.display_mensagem(funcionario)
 
     def calculate_id(self, lista):
         return len(lista) + 1

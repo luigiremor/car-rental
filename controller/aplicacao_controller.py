@@ -25,6 +25,8 @@ class AplicacaoController:
             is_logged = self.handle_menu_login()
             if is_logged:
                 self.handle_menu_principal()
+            elif is_logged is None:
+                break
 
     def handle_menu_login(self):
         return self.auth_controller.handle_menu_login()

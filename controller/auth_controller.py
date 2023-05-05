@@ -18,7 +18,7 @@ class AuthController:
                 return self.handle_cadastrar()
             elif opcao == "3":
                 self.view.display_mensagem("Saindo do sistema...")
-                break
+                return None
             else:
                 self.view.display_mensagem(
                     "Opção inválida. Por favor, tente novamente.")
@@ -33,6 +33,7 @@ class AuthController:
         if funcionario is not None:
             if funcionario.check_password(senha):
                 self.view.display_mensagem("Login efetuado com sucesso!")
+                self.funcionarios_controller.funcionario_logado = funcionario
                 return True
             else:
                 self.view.display_mensagem(
@@ -53,4 +54,5 @@ class AuthController:
         self.funcionarios_controller.funcionarios.append(funcionario)
 
         self.view.display_mensagem("Cadastro efetuado com sucesso!")
+        self.funcionarios_controller.funcionario_logado = funcionario
         return True
