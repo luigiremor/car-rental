@@ -9,7 +9,7 @@ Nenhuma biblioteca externa é necessária para este projeto, pois todas as depen
 ## Instruções de instalação
 1. Clone este repositório em seu computador local:
 ```
-git clone https://github.com/seuusuario/car_rental.git
+git clone https://github.com/luigiremor/car_rental.git
 ```
 2. Navegue até a pasta do projeto:
 ```
