@@ -1,5 +1,6 @@
 from model.cliente import Cliente
 from view.aplicacao_view import AplicacaoView
+from view.cliente_view import ClienteView
 
 
 class ClientesController:
@@ -7,9 +8,9 @@ class ClientesController:
     Controller responsável por gerenciar as operações relacionadas aos clientes.
     """
 
-    def __init__(self):
+    def __init__(self, view: ClienteView):
         self.clientes: list[Cliente] = []
-        self.view = AplicacaoView()
+        self.view = view
 
     def handle_menu_clientes(self):
         """

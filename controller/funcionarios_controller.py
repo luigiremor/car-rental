@@ -1,6 +1,6 @@
 
 from model.funcionario import Funcionario
-from view.aplicacao_view import AplicacaoView
+from view.funcionario_view import FuncionarioView
 
 
 class FuncionariosController():
@@ -8,10 +8,10 @@ class FuncionariosController():
     Controlador de funcionários do sistema de locação de veículos.
     """
 
-    def __init__(self):
+    def __init__(self, view: FuncionarioView):
+        self.view = view
         self.funcionarios: list[Funcionario] = []
         self.funcionario_logado: Funcionario | None = None
-        self.view = AplicacaoView()
 
     def handle_menu_funcionarios(self):
         """

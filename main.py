@@ -1,6 +1,5 @@
 from controller.aplicacao_controller import AplicacaoController
 
-
 def main():
     controller = AplicacaoController()
     controller.run()

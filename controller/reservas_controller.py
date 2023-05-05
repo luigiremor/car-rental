@@ -2,7 +2,7 @@
 from controller.clientes_controller import ClientesController
 from controller.veiculos_controller import Veiculos_Controller
 from model.reserva import Reserva
-from view.aplicacao_view import AplicacaoView
+from view.reserva_view import ReservaView
 
 
 class ReservasController():
@@ -10,9 +10,9 @@ class ReservasController():
     Controller responsável por gerenciar as operações relacionadas às reservas.
     """
 
-    def __init__(self, veiculos_controller: Veiculos_Controller, clientes_controller: ClientesController):
+    def __init__(self, view: ReservaView,veiculos_controller: Veiculos_Controller, clientes_controller: ClientesController):
+        self.view = view
         self.reservas: list[Reserva] = []
-        self.view = AplicacaoView()
         self.veiculos_controller = veiculos_controller
         self.clientes_controller = clientes_controller
 

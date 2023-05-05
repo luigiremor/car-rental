@@ -1,5 +1,6 @@
 from controller.funcionarios_controller import FuncionariosController
 from model.funcionario import Funcionario
+from view.login_view import LoginView
 
 
 class AuthController:
@@ -7,7 +8,7 @@ class AuthController:
     Classe AuthController que controla a autenticação de usuários no sistema.
     """
 
-    def __init__(self, funcionarios_controller: FuncionariosController, view):
+    def __init__(self, funcionarios_controller: FuncionariosController, view: LoginView):
         self.funcionarios_controller = funcionarios_controller
         self.view = view
 

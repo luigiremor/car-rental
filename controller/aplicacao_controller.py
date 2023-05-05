@@ -5,6 +5,12 @@ from controller.locacoes_controller import LocacoesController
 from controller.reservas_controller import ReservasController
 from controller.veiculos_controller import Veiculos_Controller
 from view.aplicacao_view import AplicacaoView
+from view.cliente_view import ClienteView
+from view.funcionario_view import FuncionarioView
+from view.locacao_view import LocacaoView
+from view.login_view import LoginView
+from view.reserva_view import ReservaView
+from view.veiculo_view import VeiculoView
 
 
 class AplicacaoController:
@@ -14,15 +20,22 @@ class AplicacaoController:
 
     def __init__(self):
         self.view = AplicacaoView()
-        self.clientes_controller = ClientesController()
-        self.funcionarios_controller = FuncionariosController()
-        self.veiculos_controller = Veiculos_Controller()
+        self.cliente_view = ClienteView()
+        self.funcionario_view = FuncionarioView()
+        self.veiculo_view = VeiculoView()
+        self.reserva_view = ReservaView()
+        self.locacao_view = LocacaoView()
+        self.login_view = LoginView()
+
+        self.clientes_controller = ClientesController(self.cliente_view)
+        self.funcionarios_controller = FuncionariosController(self.funcionario_view)
+        self.veiculos_controller = Veiculos_Controller(self.veiculo_view)
         self.reservas_controller = ReservasController(
-            self.veiculos_controller, self.clientes_controller)
+            self.reserva_view,self.veiculos_controller, self.clientes_controller)
         self.locacoes_controller = LocacoesController(
-            self.clientes_controller, self.veiculos_controller, self.funcionarios_controller)
+            self.locacao_view ,self.clientes_controller, self.veiculos_controller, self.funcionarios_controller)
         self.auth_controller = AuthController(
-            self.funcionarios_controller, self.view)
+            self.funcionarios_controller, self.login_view)
 
     def run(self):
         """

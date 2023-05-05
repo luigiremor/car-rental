@@ -1,6 +1,6 @@
 
 from model.veiculo import Veiculo
-from view.aplicacao_view import AplicacaoView
+from view.veiculo_view import VeiculoView
 
 
 class Veiculos_Controller():
@@ -8,9 +8,9 @@ class Veiculos_Controller():
     Controller responsável por gerenciar as operações relacionadas aos veículos.
     """
 
-    def __init__(self):
+    def __init__(self, view: VeiculoView):
         self.veiculos = []
-        self.view = AplicacaoView()
+        self.view = view
 
     def handle_menu_veiculo(self):
         """

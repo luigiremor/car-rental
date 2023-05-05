@@ -3,6 +3,7 @@ from controller.funcionarios_controller import FuncionariosController
 from controller.veiculos_controller import Veiculos_Controller
 from model.locacao import Locacao
 from view.aplicacao_view import AplicacaoView
+from view.locacao_view import LocacaoView
 
 
 class LocacoesController():
@@ -10,9 +11,9 @@ class LocacoesController():
     Controller responsável por gerenciar as operações relacionadas às locações.
     """
 
-    def __init__(self, clientes_controller: ClientesController, veiculos_controller: Veiculos_Controller, funcionarios_controller: FuncionariosController):
+    def __init__(self, view: LocacaoView,clientes_controller: ClientesController, veiculos_controller: Veiculos_Controller, funcionarios_controller: FuncionariosController):
         self.locacoes: list[Locacao] = []
-        self.view = AplicacaoView()
+        self.view = view
         self.clientes_controller = clientes_controller
         self.veiculos_controller = veiculos_controller
         self.funcionarios_controller = funcionarios_controller
