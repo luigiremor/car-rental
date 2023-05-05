@@ -13,7 +13,7 @@ https://github.com/luigiremor/car-rental.git
 ```
 2. Navegue até a pasta do projeto:
 ```
-cd car_rental
+cd car-rental
 ```
 ## Executando a aplicação
 Para iniciar a aplicação, execute o seguinte comando no terminal:
