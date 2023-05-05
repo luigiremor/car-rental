@@ -10,7 +10,7 @@ class FuncionariosController():
 
     def __init__(self):
         self.funcionarios: list[Funcionario] = []
-        self.funcionario_logado = None
+        self.funcionario_logado: Funcionario | None = None
         self.view = AplicacaoView()
 
     def handle_menu_funcionarios(self):
