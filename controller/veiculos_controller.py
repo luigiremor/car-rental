@@ -91,7 +91,7 @@ class Veiculos_Controller():
     def handle_listar_veiculo(self):
         self.view.display_mensagem("Listar Veículo")
         for veiculo in self.veiculos:
-            self.view.display_veiculo(veiculo)
+            self.view.display_mensagem(veiculo)
 
     def buscar_veiculo(self, placa) -> Veiculo | None:
         for veiculo in self.veiculos:

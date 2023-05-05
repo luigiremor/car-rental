@@ -73,7 +73,7 @@ class ClientesController:
     def handle_listar_cliente(self):
         self.view.display_mensagem("Listar Clientes")
         for cliente in self.clientes:
-            self.view.display_cliente(cliente)
+            self.view.display_mensagem(cliente)
 
     def buscar_cliente(self, cpf) -> Cliente | None:
         for cliente in self.clientes:

@@ -24,9 +24,6 @@ class AplicacaoView():
         print("6 - Voltar ao Menu Principal")
         print("")
 
-    def display_cliente(self, cliente):
-        print(cliente)
-
     def menu_funcionarios(self):
         print("1 - Cadastrar Funcionário")
         print("2 - Alterar Funcionário")
@@ -36,9 +33,6 @@ class AplicacaoView():
         print("6 - Voltar ao Menu Principal")
         print("")
 
-    def display_funcionario(self, funcionario):
-        print(funcionario)
-
     def menu_veiculos(self):
         print("1 - Cadastrar Veiculo")
         print("2 - Alterar Veiculo")
@@ -47,9 +41,6 @@ class AplicacaoView():
         print("5 - Buscar Veiculo")
         print("6 - Voltar ao Menu Principal")
         print("")
-
-    def display_veiculo(self, veiculo):
-        print(veiculo)
 
     def menu_reservas(self):
         print("1 - Cadastrar Reserva")
