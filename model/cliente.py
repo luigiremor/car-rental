@@ -2,6 +2,10 @@ from model.pessoa import Pessoa
 
 
 class Cliente(Pessoa):
+    """
+    Classe Cliente que herda da classe Pessoa.
+    Representa um cliente no sistema de locação de veículos.
+    """
 
     def __init__(self, id, nome, cpf, telefone, endereco):
         super().__init__(id, nome, cpf, telefone)

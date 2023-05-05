@@ -1,5 +1,9 @@
 
 class Veiculo():
+    """
+    Classe Veiculo.
+    Representa um veículo no sistema de locação de veículos.
+    """
 
     def __init__(self, id, marca, modelo, ano, placa, cor, categoria, valor_diaria, is_disponivel):
         self.id = id

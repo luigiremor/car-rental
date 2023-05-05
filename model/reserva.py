@@ -5,6 +5,10 @@ from model.veiculo import Veiculo
 
 
 class Reserva():
+    """
+    Classe Reserva.
+    Representa uma reserva no sistema de locação de veículos.
+    """
 
     def __init__(self, id, data_inicio, data_fim, cliente: Cliente, veiculo: Veiculo):
         self.id = id

@@ -1,4 +1,8 @@
 class Pessoa():
+    """
+    Classe Pessoa.
+    Representa uma pessoa no sistema de locação de veículos.
+    """
 
     def __init__(self, id, nome, cpf, telefone):
         self.id = id

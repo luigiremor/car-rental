@@ -2,6 +2,10 @@ from model.pessoa import Pessoa
 
 
 class Funcionario(Pessoa):
+    """
+    Classe Funcionario que herda da classe Pessoa.
+    Representa um funcionário no sistema de locação de veículos.
+    """
 
     def __init__(self, id, nome, cpf, telefone, cargo, login, senha):
         super().__init__(id, nome, cpf, telefone)
