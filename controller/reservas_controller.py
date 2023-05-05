@@ -8,7 +8,7 @@ from view.aplicacao_view import AplicacaoView
 class ReservasController():
 
     def __init__(self, veiculos_controller: Veiculos_Controller, clientes_controller: ClientesController):
-        self.reservas = []
+        self.reservas: list[Reserva] = []
         self.view = AplicacaoView()
         self.veiculosController = veiculos_controller
         self.clientesController = clientes_controller
