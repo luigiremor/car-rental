@@ -1,0 +1,139 @@
+// classes models
+
+[Pessoa| cpf; id; nome; telefone| get_cpf(); get_id(); get_nome(); get_telefone(); set_cpf(); set_nome(); set_telefone()]
+
+[Cliente| endereco| get_endereco(); set_endereco()]
+
+[Funcionario| cargo; login; senha| check_password(); get_cargo(); get_login(); set_cargo(); set_login(); set_senha()]
+
+[Veiculo|id; ano; categoria; cor; is_disponivel; marca; modelo; placa; valor_diaria| get_ano(); get_categoria(); get_cor(); get_id(); get_is_disponivel(); get_marca(); get_modelo(); get_placa(); get_valor_diaria(); set_ano(); set_categoria(); set_cor(); set_is_disponivel(); set_marca(); set_modelo(); set_placa(); set_valor_diaria]
+
+[Reserva|id; cliente; data_fim; data_inicio; valor_total; veiculo| calcular_dias_reserva(); get_cliente(); get_data_fim(); get_data_inicio(); get_id(); get_valor_total(); get_veiculo(); set_cliente(); set_data_fim(); set_valor_total(); set_veiculo]
+
+[Locacao|funcionario; valor_total| calcular_valor_total(); get_funcionario(); set_funcionario()]
+
+// relacoes models
+
+[Pessoa]^[Cliente]
+
+[Pessoa]^[Funcionario]
+
+[Reserva]^[Locacao]
+
+[Reserva]0..*<>--1[Cliente]
+
+[Locacao]0..*<>--1[Funcionario]
+
+[Locacao]0..*<>--1[Veiculo]
+
+[Locacao]0..*<>--1[Cliente]
+
+[Reserva]0..*<>--1[Veiculo]
+
+// classes controller
+
+[AplicacaoController| auth_controller; clientes_controller; funcionarios_controller; locacoes_controller; reservas_controller; veiculos_controller; view| handle_menu_login(); handle_menu_principal(); run()]
+
+[AuthController| funcionarios_controller; view| handle_cadastrar(); handle_login(); handle_menu_login()]
+
+[ClientesController| clientes; view | buscar_cliente(); calculate_id(); handle_cadastrar_cliente(); handle_editar_cliente(); handle_excluir_cliente(); handle_listar_cliente(); handle_menu_clientes()]
+
+[FuncionariosController| funcionario_logado; funcionarios; view | buscar_funcionario(); calculate_id(); handle_cadastrar_funcionario(); handle_editar_funcionario(); handle_excluir_funcionario(); handle_listar_funcionario(); handle_menu_funcionarios()]
+
+[VeiculosController| veiculos; view| buscar_veiculo(); calculate_id(); handle_cadastrar_veiculo(); handle_editar_veiculo(); handle_excluir_veiculo(); handle_listar_veiculo(); handle_menu_veiculos()]
+
+[ReservasController| clientes_controller; reservas; veiculos_controller; view| buscar_reserva(); calculate_id(); handle_cadastrar_reserva(); handle_editar_reserva(); handle_excluir_reserva(); handle_listar_reserva(); handle_menu_reservas()]
+
+[LocacoesController| clientes_controller; funcionarios_controller; locacoes; veiculos_controller; view| buscar_locacao(); calculate_id(); handle_cadastrar_locacao(); handle_editar_locacao(); handle_excluir_locacao(); handle_listar_locacao(); handle_menu_locacoes()]
+
+// relacoes controller
+
+[AplicacaoController]++-1[AuthController]
+
+[AplicacaoController]++-1[ClientesController]
+
+[AplicacaoController]++-1[FuncionariosController]
+
+[AplicacaoController]++-1[VeiculosController]
+
+[AplicacaoController]++-1[ReservasController]
+
+[AplicacaoController]++-1[LocacoesController]
+
+[AuthController]<>-1[FuncionariosController]
+
+[LocacoesController]<>-1[FuncionariosController]
+
+[LocacoesController]<>-1[ClientesController]
+
+[LocacoesController]<>-1[VeiculosController]
+
+[ReservasController]<>-1[ClientesController]
+
+[ReservasController]<>-1[VeiculosController]
+
+// relacoes controller-model
+
+[AuthController]1++-1[Funcionario]
+
+[ClientesController]1++-1[Cliente]
+
+[FuncionariosController]1++-1[Funcionario]
+
+[VeiculosController]1++-1[Veiculo]
+
+[ReservasController]1++-1[Reserva]
+
+[LocacoesController]1++-1[Locacao]
+
+// classes view
+
+[BaseView| get_input(); display_mensagem()]
+
+[AplicacaoView| menu_principal()]
+
+[ClienteView| menu_clientes()]
+
+[FuncionarioView| menu_funcionarios()]
+
+[VeiculoView| menu_veiculos()]
+
+[ReservaView| menu_reservas()]
+
+[LocacaoView| menu_locacoes()]
+
+// relacoes view
+
+[BaseView]^[AplicacaoView]
+
+[BaseView]^[ClienteView]
+
+[BaseView]^[FuncionarioView]
+
+[BaseView]^[VeiculoView]
+
+[BaseView]^[ReservaView]
+
+[BaseView]^[LocacaoView]
+
+// relacoes view-controller
+
+[AplicacaoView]++-1[AplicacaoController]
+
+[ClienteView]++-1[ClientesController]
+
+[FuncionarioView]++-1[FuncionariosController]
+
+[VeiculoView]++-1[VeiculosController]
+
+[ReservaView]++-1[ReservasController]
+
+[LocacaoView]++-1[LocacoesController]
+
+
+
+
+
+
+
+
