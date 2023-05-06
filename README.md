@@ -32,6 +32,7 @@ O sistema de locação de veículos possui os seguintes módulos:
 3. Gerenciamento de veículos
 4. Gerenciamento de reservas
 5. Gerenciamento de locações
+
 Cada módulo possui suas próprias funcionalidades de CRUD (Create, Read, Update e Delete) e lógicas específicas.
 
 ## Contribuindo
