@@ -74,17 +74,17 @@
 
 // relacoes controller-model
 
-[AuthController]1++-1[Funcionario]
+[AuthController]1++-0..*[Funcionario]
 
-[ClientesController]1++-1[Cliente]
+[ClientesController]1++-0..*[Cliente]
 
-[FuncionariosController]1++-1[Funcionario]
+[FuncionariosController]1++-0..*[Funcionario]
 
-[VeiculosController]1++-1[Veiculo]
+[VeiculosController]1++-0..*[Veiculo]
 
-[ReservasController]1++-1[Reserva]
+[ReservasController]1++-0..*[Reserva]
 
-[LocacoesController]1++-1[Locacao]
+[LocacoesController]1++-0..*[Locacao]
 
 // classes view
 
